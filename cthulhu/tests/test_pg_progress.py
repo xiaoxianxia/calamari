@@ -1,5 +1,5 @@
 
-from django.utils.unittest.case import TestCase
+from django.utils.unittest import TestCase
 from cthulhu.manager.user_request import PgProgress
 
 

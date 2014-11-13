@@ -3,13 +3,13 @@ from django.conf.urls import patterns, include, url
 from settings import STATIC_ROOT, GRAPHITE_API_PREFIX, CONTENT_DIR
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 
 urlpatterns = patterns(
     '',
-
+    url(r'^djadmin/', include(admin.site.urls)),
     # These views are needed for the django-rest-framework debug interface
     # to be able to log in and out.  The URL path doesn't matter, rest_framework
     # finds the views by name.

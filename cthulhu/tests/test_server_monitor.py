@@ -6,7 +6,7 @@ from tests.util import load_fixture
 
 os.environ['CALAMARI_CONFIG'] = os.path.join(os.path.dirname(__file__), "../../dev/calamari.conf")
 
-from django.utils.unittest.case import TestCase
+from django.utils.unittest import TestCase
 from mock import Mock
 
 from cthulhu.manager.server_monitor import ServerMonitor, ServiceId

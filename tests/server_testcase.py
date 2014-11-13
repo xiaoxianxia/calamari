@@ -1,5 +1,5 @@
 import logging
-from django.utils.unittest.case import TestCase
+from django.utils.unittest import TestCase
 from tests.calamari_ctl import EmbeddedCalamariControl, ExternalCalamariControl
 from tests.ceph_ctl import EmbeddedCephControl, ExternalCephControl
 

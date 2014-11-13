@@ -12,7 +12,7 @@ import json
 import urllib2
 
 from minion_sim.sim import MinionSim
-from django.utils.unittest.case import SkipTest
+from django.utils.unittest import SkipTest
 from tests.config import TestConfig
 
 config = TestConfig()

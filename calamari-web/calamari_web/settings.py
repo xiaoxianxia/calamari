@@ -99,7 +99,11 @@ LOGIN_URL = '/login/'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    #     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.messages.context_processors.messages',
 )
 
 CSRF_COOKIE_NAME = "XSRF-TOKEN"
@@ -122,6 +126,7 @@ ROOT_URLCONF = 'calamari_web.urls'
 WSGI_APPLICATION = 'calamari_web.wsgi.application'
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
