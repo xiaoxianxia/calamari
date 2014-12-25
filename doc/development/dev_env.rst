@@ -63,6 +63,15 @@ For RH systems:
 
 1. Create a virtualenv (if you are on ubuntu and using systemwide installs of
    cairo and m2crypto, then pass *--system-site-packages*)
+
+::
+     cd calamari
+     virtualenv --system-site-packages calamari_venv
+     source calamari_venv/bin/active 
+     export VIRTUAL_ENV=`pwd`/calamari_venv
+
+*You can use other virtualenv name for {calamari_venv}*
+    
 2. Install dependencies with ``pip install -r requirements/{debian,rh}/requirements.txt`` and ``pip install -r requirements/{debian,rh}/requirements.force.txt``.
 3. Install graphite and carbon, which require some special command lines:
 
@@ -120,6 +129,8 @@ Set up postgres, the easiest way to do this is by using salt:
 ::
 
     ~/calamari$ sudo salt-call --local state.template salt/local/postgres.sls
+
+*Before do this,make sure you postgressql is running sucessful*
 
 If you want to create your database another way, examine the .sls file to see
 the settings that are expected.  If you want to use another database like SQLite,
@@ -181,13 +192,17 @@ Real minions
 ____________
 
 If you have a real live Ceph cluster, install ``salt-minion`` on each of the
-servers, and configure it to point to your development instance host (mine is 192.168.0.5,
-**substitute yours**)
+servers, and configure it to point to your development instance host
+
+1.install salt-minion
+You can get salt-minion(2014.1.10) here https://launchpad.net/~saltstack/+archive/ubuntu/salt-depends/+sourcepub/4335419/+listing-archive-extra
+
+2.build and install diamond
+
+3.config salt-minion
 
 ::
-
-    wget -O - https://raw.github.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh
-    | sudo sh && echo "master: 192.168.0.5" >> /etc/salt/minion && service
+    echo "master: fqdn" > /etc/salt/minion.d/calamari.conf
     salt-minion restart
 
 Allowing minions to join
