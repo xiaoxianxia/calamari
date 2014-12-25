@@ -65,6 +65,7 @@ For RH systems:
    cairo and m2crypto, then pass *--system-site-packages*)
 
 ::
+
      cd calamari
      virtualenv --system-site-packages calamari_venv
      source calamari_venv/bin/active 
@@ -194,7 +195,9 @@ ____________
 If you have a real live Ceph cluster, install ``salt-minion`` on each of the
 servers, and configure it to point to your development instance host
 
+
 1.install salt-minion
+
 You can get salt-minion(2014.1.10) here https://launchpad.net/~saltstack/+archive/ubuntu/salt-depends/+sourcepub/4335419/+listing-archive-extra
 
 2.build and install diamond
@@ -202,6 +205,7 @@ You can get salt-minion(2014.1.10) here https://launchpad.net/~saltstack/+archiv
 3.config salt-minion
 
 ::
+
     echo "master: fqdn" > /etc/salt/minion.d/calamari.conf
     salt-minion restart
 
